@@ -7,11 +7,11 @@ import { signOut } from "next-auth/react";
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
-import { User } from "@prisma/client";
 import useLoginModal from "@/app/hooks/useLoginModal";
+import { SafeUser } from "@/app/types";
 
 type Props = {
-  currentUser?: User | null;
+  currentUser?: SafeUser | null;
 };
 
 const UserMenu = ({ currentUser }: Props) => {
