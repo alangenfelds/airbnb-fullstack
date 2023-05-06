@@ -1,3 +1,4 @@
+import getCurrentUser from "./actions/getCurrentUser";
 import getListings from "./actions/getListings";
 import ClientOnly from "./components/ClientOnly";
 import Container from "./components/Container";
@@ -8,6 +9,8 @@ type Props = {};
 
 const Home = async (props: Props) => {
   const listings = await getListings();
+  const currentUser = await getCurrentUser();
+
   const isEmpty = !listings.length;
 
   if (isEmpty) {
@@ -27,7 +30,11 @@ const Home = async (props: Props) => {
         "
         >
           {listings.map((listing: any) => (
-            <ListingCard key={listing.id} />
+            <ListingCard
+              key={listing.id}
+              data={listing}
+              currentUser={currentUser}
+            />
           ))}
         </div>
       </Container>
