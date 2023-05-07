@@ -4,6 +4,7 @@ import ClientOnly from "./components/ClientOnly";
 import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
 import ListingCard from "./components/listings/ListingCard";
+import { SafeListing } from "./types";
 
 type Props = {};
 
@@ -29,7 +30,7 @@ const Home = async (props: Props) => {
         lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8
         "
         >
-          {listings.map((listing: any) => (
+          {listings.map((listing: SafeListing) => (
             <ListingCard
               key={listing.id}
               data={listing}
